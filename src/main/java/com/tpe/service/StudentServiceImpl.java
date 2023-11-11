@@ -42,6 +42,7 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public void deleteStudent(Long id) {
         //desim yapilacak
+        //gitup 2 gün almamasi benim hatam
 
     }
 }
