@@ -41,6 +41,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void deleteStudent(Long id) {
+        //desim yapilacak
 
     }
 }
