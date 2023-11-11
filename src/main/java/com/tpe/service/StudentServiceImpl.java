@@ -1,6 +1,7 @@
 package com.tpe.service;
 
 import com.tpe.domain.Student;
+import com.tpe.exception.ResourceNotFoundException;
 import com.tpe.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,14 +36,25 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public Student findStudentById(Long id) {
-        return null;
+
+        Student student=repository.findById(id).
+                orElseThrow(()->new ResourceNotFoundException("Student not found by id: "+id));
+
+        //optional classı null değer dönme ihtimaline karşılık tetikte olmamızı sağlar.
+        //findById student bulunursa optional içinde studentı getirir
+        //ancak student bulunamazsa boş bir optional objesi döner
+        //optionalın içi boşsa orElseThrow metodu exception fırlatmamızı sağlar.
+
+        return student;
     }
 
 
     @Override
     public void deleteStudent(Long id) {
-        //desim yapilacak
-        //gitup 2 gün almamasi benim hatam
+        Student student=findStudentById(id);
+        //silmeye çalışmadan önce id si verilen student objesini buluyoruz.
+        //eğer student bulunamazsa exception fırlatılacak, ve alttaki koda geçmeyecek.
+        repository.delete(student);
 
     }
 }

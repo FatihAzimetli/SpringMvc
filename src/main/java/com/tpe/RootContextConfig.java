@@ -18,7 +18,7 @@ public class RootContextConfig {
     @Autowired
     private Environment environment;
 
-        //hibernate ile DB ye erişim için SessionFactory i configure ediyoruz
+    //hibernate ile DB ye erişim için SessionFactory i configure ediyoruz
 
     @Bean
     public LocalSessionFactoryBean sessionFactory(){

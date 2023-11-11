@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @ComponentScan("com.tpe")
-@EnableWebMvc//Mvc con etkinlestirmek icin
+@EnableWebMvc//MVC config etkinleştirmek için
 public class WebMvcConfig implements WebMvcConfigurer {
 
     //view resolver için bir bean oluşturalım
@@ -33,4 +33,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 setCachePeriod(0);//cache periyodu için süre verilebilir.
 
     }
+
 }
